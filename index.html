@@ -1,70 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>MR TOM EDITZ</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #ff4e50, #f9d423);
-      color: white;
-      text-align: center;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MR TOM EDITZ</title>
 
-    header {
-      padding: 50px 20px;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    h1 {
-      font-size: 40px;
-      margin-bottom: 10px;
-    }
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #000;
+    color: white;
+}
 
-    p {
-      font-size: 18px;
-    }
+/* HEADER */
+.header {
+    text-align: center;
+    padding: 30px 15px;
+}
 
-    .btn {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 25px;
-      background: black;
-      color: white;
-      text-decoration: none;
-      border-radius: 25px;
-      transition: 0.3s;
-    }
+.header img {
+    width: 100px;
+    border-radius: 50%;
+    border: 3px solid #00ff88;
+    box-shadow: 0 0 20px #00ff88;
+}
 
-    .btn:hover {
-      background: white;
-      color: black;
-    }
+.header h1 {
+    color: #00ff88;
+}
 
-    footer {
-      margin-top: 50px;
-      padding: 20px;
-      background: rgba(0,0,0,0.2);
-    }
-  </style>
+/* SUBSCRIBE BUTTON */
+.subscribe {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background: #00ff88;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 0 20px #00ff88;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from { box-shadow: 0 0 10px #00ff88; }
+    to { box-shadow: 0 0 25px #00ff88; }
+}
+
+/* VIDEO CARDS */
+.container {
+    padding: 10px;
+}
+
+.card {
+    background: #111;
+    margin: 12px;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+.card img {
+    width: 100%;
+}
+
+.card p {
+    padding: 10px;
+}
+
+/* SOCIAL */
+.social {
+    text-align: center;
+    margin: 20px;
+}
+
+.social i {
+    font-size: 28px;
+    margin: 10px;
+}
+
+.fa-youtube { color: red; }
+.fa-instagram { color: #ff2f92; }
+.fa-whatsapp { color: #25D366; }
+
+</style>
 </head>
 
 <body>
 
-<header>
-  <h1>MR TOM EDITZ 🔥</h1>
-  <p>4K Love Status | Romantic Edits | Trending Reels</p>
+<div class="header">
+    <img src="https://i.ibb.co/2kR5zqP/profile.png">
+    <h1>MR TOM EDITZ</h1>
+    <p>Love | Lofi | 4K Status</p>
 
-  <a class="btn" href="https://youtube.com/@mrtomeditz" target="_blank">🎬 YouTube</a>
-  <a class="btn" href="https://www.instagram.com/mr__ashish__99__">📸 Instagram</a>
-  <a class="btn" href="https://wa.me/917992751245?text=Hi%20bro,%20I%20saw%20your%20edits%20🔥" target="_blank">💬 WhatsApp</a>
-</header>
+    <a class="subscribe" href="https://youtube.com/@mrtomeditz" target="_blank">
+        🔔 Subscribe Now
+    </a>
+</div>
 
-<footer>
-  <p>© 2026 MR TOM EDITZ | All Rights Reserved</p>
-</footer>
+<div class="container" id="videos"></div>
+
+<div class="social">
+    <a href="https://youtube.com/@mrtomeditz"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.instagram.com/mr__ashish__99__"><i class="fab fa-instagram"></i></a>
+    <a href="https://wa.me/917992751245?text=Hi%20bro,%20I%20saw%20your%20edits%20🔥"><i class="fab fa-whatsapp"></i></a>
+</div>
+
+<script>
+// ALL VIDEOS
+let videos = [
+"kZoxGvTOQhQ","j7CTo9e-vK0","zQT2RpRP5mI","mNPUrHz9AZw","4rVmNdcP66I",
+"w55i3z7Fv5k","nkCwkHbkIHw","1AneRQCRsDQ","f50NdW7wCTo","POLzsF48Oek",
+"t2Cj1o83SBo","-BVqZr7WJY8","wzXH2eUN8Mk","kEiOXEONmQA","jlxUn3vGfWQ",
+"NdjqamEsy_g","9mNlz-b9_As","fcawvc3fZwY","DkKwEoZKVFs","pkZyWnw_pzg",
+"ovIrIsBVHz4","rG4JQtqNdNw","xcjGAD-cR0s","GJyIWxUtrUs","El4_lDYde8k",
+"hRZ3DillW0w","eQtb1a82nbo","G4hsRYOQIzc","9r3WvvecMNM","wE2_yuduZ-Y",
+"0k5M_xSAcWM","-NL3z1V4ZU0","fqcl7p1qWmw","0jVAPvSytqc"
+];
+
+// AUTO LATEST FIRST
+videos.reverse();
+
+let container = document.getElementById("videos");
+
+videos.forEach(id => {
+    let link = `https://youtube.com/shorts/${id}`;
+    let thumb = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+
+    container.innerHTML += `
+    <a class="card" href="${link}" target="_blank">
+        <img src="${thumb}">
+        <p>🎬 Watch Video</p>
+    </a>
+    `;
+});
+</script>
 
 </body>
 </html>
