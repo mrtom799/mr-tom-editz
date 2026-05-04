@@ -5,90 +5,118 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MR TOM EDITZ</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: #000;
+    background: radial-gradient(circle at top, #001a0d, #000);
     color: white;
 }
 
 /* HEADER */
 .header {
     text-align: center;
-    padding: 30px 15px;
+    padding: 20px;
 }
 
 .header img {
-    width: 100px;
+    width: 80px;
     border-radius: 50%;
-    border: 3px solid #00ff88;
-    box-shadow: 0 0 20px #00ff88;
+    border: 2px solid #00ff88;
+    box-shadow: 0 0 15px #00ff88;
 }
 
-.header h1 {
-    color: #00ff88;
-}
+.header h1 { color: #00ff88; margin: 5px; }
 
-/* SUBSCRIBE BUTTON */
 .subscribe {
     display: inline-block;
-    margin-top: 10px;
-    padding: 10px 20px;
-    border-radius: 25px;
+    padding: 8px 18px;
+    border-radius: 20px;
     background: #00ff88;
     color: black;
     text-decoration: none;
-    font-weight: bold;
     box-shadow: 0 0 20px #00ff88;
-    animation: glow 1.5s infinite alternate;
 }
 
-@keyframes glow {
-    from { box-shadow: 0 0 10px #00ff88; }
-    to { box-shadow: 0 0 25px #00ff88; }
+/* FEATURED */
+.featured {
+    margin: 15px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
 }
 
-/* VIDEO CARDS */
-.container {
+.featured img { width: 100%; }
+
+.play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    color: white;
+}
+
+/* SECTION TITLE */
+.title {
+    padding: 10px;
+    font-size: 16px;
+    color: #00ff88;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
     padding: 10px;
 }
 
+/* CARD */
 .card {
-    background: #111;
-    margin: 12px;
-    border-radius: 12px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
     overflow: hidden;
     text-decoration: none;
     color: white;
-    display: block;
+    position: relative;
+    transform: perspective(500px);
     transition: 0.3s;
 }
 
 .card:hover {
-    transform: scale(1.03);
+    transform: scale(1.05) rotateX(5deg);
 }
 
 .card img {
     width: 100%;
+    height: 110px;
+    object-fit: cover;
 }
 
-.card p {
-    padding: 10px;
+.card .play {
+    font-size: 25px;
 }
 
-/* SOCIAL */
+/* SOCIAL FLOAT */
 .social {
-    text-align: center;
-    margin: 20px;
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.7);
+    border: 1px solid #00ff88;
+    border-radius: 30px;
+    padding: 8px 15px;
 }
 
 .social i {
-    font-size: 28px;
-    margin: 10px;
+    margin: 0 10px;
+    font-size: 20px;
 }
 
 .fa-youtube { color: red; }
@@ -103,23 +131,34 @@ body {
 <div class="header">
     <img src="https://i.ibb.co/2kR5zqP/profile.png">
     <h1>MR TOM EDITZ</h1>
-    <p>Love | Lofi | 4K Status</p>
-
-    <a class="subscribe" href="https://youtube.com/@mrtomeditz" target="_blank">
-        🔔 Subscribe Now
-    </a>
+    <a class="subscribe" href="https://youtube.com/@mrtomeditz">Subscribe</a>
 </div>
 
-<div class="container" id="videos"></div>
+<!-- FEATURED VIDEO -->
+<a class="featured" href="https://youtube.com/shorts/0jVAPvSytqc">
+    <img src="https://img.youtube.com/vi/0jVAPvSytqc/hqdefault.jpg">
+    <div class="play">▶</div>
+</a>
+
+<div class="title">🔥 Most Viewed</div>
+<div class="grid">
+<a class="card" href="https://youtube.com/shorts/kZoxGvTOQhQ">
+<img src="https://img.youtube.com/vi/kZoxGvTOQhQ/mqdefault.jpg"><div class="play">▶</div></a>
+
+<a class="card" href="https://youtube.com/shorts/j7CTo9e-vK0">
+<img src="https://img.youtube.com/vi/j7CTo9e-vK0/mqdefault.jpg"><div class="play">▶</div></a>
+</div>
+
+<div class="title">🎬 All Videos</div>
+<div class="grid" id="videos"></div>
 
 <div class="social">
-    <a href="https://youtube.com/@mrtomeditz"><i class="fab fa-youtube"></i></a>
-    <a href="https://www.instagram.com/mr__ashish__99__"><i class="fab fa-instagram"></i></a>
-    <a href="https://wa.me/917992751245?text=Hi%20bro,%20I%20saw%20your%20edits%20🔥"><i class="fab fa-whatsapp"></i></a>
+<a href="https://youtube.com/@mrtomeditz"><i class="fab fa-youtube"></i></a>
+<a href="https://www.instagram.com/mr__ashish__99__"><i class="fab fa-instagram"></i></a>
+<a href="https://wa.me/917992751245?text=Hi%20bro,%20I%20saw%20your%20edits%20🔥"><i class="fab fa-whatsapp"></i></a>
 </div>
 
 <script>
-// ALL VIDEOS
 let videos = [
 "kZoxGvTOQhQ","j7CTo9e-vK0","zQT2RpRP5mI","mNPUrHz9AZw","4rVmNdcP66I",
 "w55i3z7Fv5k","nkCwkHbkIHw","1AneRQCRsDQ","f50NdW7wCTo","POLzsF48Oek",
@@ -130,19 +169,15 @@ let videos = [
 "0k5M_xSAcWM","-NL3z1V4ZU0","fqcl7p1qWmw","0jVAPvSytqc"
 ];
 
-// AUTO LATEST FIRST
 videos.reverse();
 
 let container = document.getElementById("videos");
 
 videos.forEach(id => {
-    let link = `https://youtube.com/shorts/${id}`;
-    let thumb = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
-
     container.innerHTML += `
-    <a class="card" href="${link}" target="_blank">
-        <img src="${thumb}">
-        <p>🎬 Watch Video</p>
+    <a class="card" href="https://youtube.com/shorts/${id}">
+        <img src="https://img.youtube.com/vi/${id}/mqdefault.jpg">
+        <div class="play">▶</div>
     </a>
     `;
 });
